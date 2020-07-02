@@ -12,6 +12,7 @@
         <module>spring5-study-01</module>
         <module>spring5-study-02</module>
         <module>spring5-study-03</module>
+        <module>spring5-study-04</module>
     </modules>
 
     <properties>
