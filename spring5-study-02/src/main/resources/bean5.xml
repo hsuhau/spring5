@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="orders" class="com.hsuhau.spring5.bean.Orders" init-method="initMethod" destroy-method="destroyMethod">
+        <property name="oname" value="phone"/>
+    </bean>
+
+    <!--
+        实现自动装配
+        Bean标签属性autowire 配置自动装配
+        autowire属性常用功能两个值
+            byName根据属性名称注入，注入值Bean的id值和类属性名称一样
+            byType根据属性类型注入
+    -->
+    <!--<bean id="emp" class="com.hsuhau.spring5.autowire.Emp" autowire="byName">
+        <property name="dept" ref="dept"/>
+    </bean>-->
+    <bean id="emp" class="com.hsuhau.spring5.autowire.Emp" autowire="byType">
+        <property name="dept" ref="dept"/>
+    </bean>
+
+    <bean id="dept" class="com.hsuhau.spring5.autowire.Dept"/>
+
+</beans>

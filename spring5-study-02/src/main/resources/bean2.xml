@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+    <!--
+    1.在Spring配置文件中引入名称空间util
+    2.使用util标签完成List集合注入提取
+    -->
+
+    <!--1 提取List集合类型属性注入-->
+    <util:list id="bookList">
+        <value>易筋经</value>
+        <value>九阳真经</value>
+        <value>九阳神功</value>
+    </util:list>
+
+    <!-- <bean id="book" class="com.hsuhau.spring5.collection.Book">
+         <property name="list" ref="bookList"/>
+     </bean>-->
+
+    <!--
+    如何设置单实例还是多实例
+
+    设置scope值是singleton时候，加载Spring配置文件时候就会创建单实例对象
+    设置scope值是prototype时候，不是在加载Spring配置文件时候就会创建对象，在调用getBean方法时候创建多实例对象
+    request
+    session
+    -->
+    <bean id="book" class="com.hsuhau.spring5.collection.Book" scope="prototype">
+        <property name="list" ref="bookList"/>
+    </bean>
+</beans>
